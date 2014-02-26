@@ -17,7 +17,8 @@ var makeQueue = function(){
       delete storage[0];
       size--;
       for (var key in storage) {
-        key--;
+        var current = 0;
+        storage[current] = storage[key];
       }
       return item;
     }
