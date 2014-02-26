@@ -1,5 +1,32 @@
+/*global _*/
+
 var makeStack = function() {
-  // Hey! Copy your code from src/functional/stack.js and paste it here
+  var instance = {};
+
+  instance.storage = {};
+  instance.currentSize = 0;
+
+  _.extend(instance, stackMethods);
+
+  return instance;
 };
-  
+
 var stackMethods = {};
+
+stackMethods.push = function(value){
+    this.storage[this.currentSize] = value;
+    this.currentSize++;
+  };
+
+stackMethods.pop = function(){
+  var item = this.storage[this.currentSize-1];
+  if (item !== undefined) {
+    delete this.storage[this.currentSize-1];
+    this.currentSize--;
+    return item;
+  }
+};
+
+stackMethods.size = function(){
+  return this.currentSize;
+};
