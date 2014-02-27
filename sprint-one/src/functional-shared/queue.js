@@ -23,9 +23,10 @@ queueMethods.dequeue = function(){
   if (item !== undefined) {
     delete this.storage[0];
     this.currentSize--;
+    var current = 0;
     for (var key in this.storage) {
-      var current = 0;
       this.storage[current] = this.storage[key];
+      current++;
     }
     return item;
   }
