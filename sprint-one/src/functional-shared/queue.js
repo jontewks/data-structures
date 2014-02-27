@@ -36,3 +36,12 @@ queueMethods.size = function(){
   return this.currentSize;
 };
 
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  makeQueue();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Functional-shared queue took', totalTime, 'milliseconds for 100,000 instantiations');
+

@@ -26,4 +26,12 @@ Stack.prototype.size = function(){
   return this.currentSize;
 };
 
-var newStack = new Stack();
+// var newStack = new Stack();
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  var that = new Stack();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Pseudoclassical stack took', totalTime, 'milliseconds for 100,000 instantiations');

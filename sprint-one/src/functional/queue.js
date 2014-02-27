@@ -31,3 +31,11 @@ var makeQueue = function(){
 
   return instance;
 };
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  makeQueue();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Functional queue took', totalTime, 'milliseconds for 100,000 instantiations');

@@ -26,3 +26,13 @@ Queue.prototype.dequeue = function(){
 Queue.prototype.size = function(){
   return this.currentSize;
 };
+
+// var newQueue = new Queue();
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  var that = new Queue();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Pseudoclassical queue took', totalTime, 'milliseconds for 100,000 instantiations');

@@ -28,3 +28,12 @@ stackMethods.pop = function(){
 stackMethods.size = function(){
   return this.currentSize;
 };
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  makeStack();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Prototypal stack took', totalTime, 'milliseconds for 100,000 instantiations');
+

@@ -26,3 +26,13 @@ var makeStack = function(){
 
   return instance;
 };
+
+var startTime = new Date().getTime();
+for (var i = 0; i < 100000; i++) {
+  makeStack();
+}
+var endTime = new Date().getTime();
+var totalTime = endTime - startTime;
+console.log('Functional stack took', totalTime, 'milliseconds for 100,000 instantiations');
+
+
