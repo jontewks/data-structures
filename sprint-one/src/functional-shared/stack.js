@@ -6,9 +6,15 @@ var makeStack = function() {
   instance.storage = {};
   instance.currentSize = 0;
 
-  _.extend(instance, stackMethods);
+  extend(instance, stackMethods);
 
   return instance;
+};
+
+var extend = function(to, from){
+  for (var key in from){
+    to[key] = from[key];
+  }
 };
 
 var stackMethods = {};

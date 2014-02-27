@@ -6,9 +6,15 @@ var makeQueue = function(){
   instance.storage = {};
   instance.currentSize = 0;
 
-  _.extend(instance, queueMethods);
+  extend(instance, queueMethods);
 
   return instance;
+};
+
+var extend = function(to, from){
+  for (var key in from){
+    to[key] = from[key];
+  }
 };
 
 var queueMethods = {};
