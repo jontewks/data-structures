@@ -28,7 +28,7 @@ describe("hashTable", function() {
   it("should not contain values that were removed", function() {
     hashTable.insert("Steven", "Tyler");
     hashTable.remove("Steven");
-    expect(hashTable.retrieve("Steven")).to.equal(null);
+    expect(hashTable.retrieve("Steven")).to.equal(undefined);
   });
 
   it("should handle hash function collisions", function(){
