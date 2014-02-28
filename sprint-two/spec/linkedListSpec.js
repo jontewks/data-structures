@@ -25,9 +25,7 @@ describe("linkedList", function() {
     linkedList.addToTail(5);
     expect(linkedList.tail.value).to.equal(5);
     linkedList.addToTail(6);
-    linkedList.addToTail(98);
-    expect(linkedList[6].next).to.equal(98);
-    expect(linkedList.tail.value).to.equal(98);
+    expect(linkedList.tail.value).to.equal(6);
   });
 
   it("should remove the head from the list when removeHead is called", function(){
@@ -52,6 +50,49 @@ describe("linkedList", function() {
     linkedList.removeHead();
     assert.isFalse(linkedList.contains(4));
   });
+
+  it("previous tail's next value should point to new tail", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+  });
+
+});
+
+describe("linkedList Extra Credit", function() {
+  var linkedList;
+
+  beforeEach(function() {
+    linkedList = makeLinkedList();
+  });
+
+  it("EC: should be able to add to the head of the list", function(){
+    linkedList.addToHead(9);
+    linkedList.addToHead(10);
+    expect(linkedList.head.value).to.equal(10);
+  });
+
+  it("EC: should still have previous head in list", function(){
+    linkedList.addToHead(9);
+    linkedList.addToHead(10);
+    assert.isTrue(linkedList.contains(9));
+  });
+
+  it("EC: Should be able to removeHead and reassign to next Head", function(){
+    linkedList.addToHead(9);
+    linkedList.addToHead(10);
+    linkedList.removeHead();
+    assert.isTrue(linkedList.contains(9));
+  });
+
+  it("EC: Should be able to removeTail and reassign to prev Tail", function(){
+    linkedList.addToTail(9);
+    linkedList.addToTail(10);
+    linkedList.addToTail(7);
+    linkedList.removeTail();
+    assert.isTrue(linkedList.contains(10));
+  });
+
+
 
   // add more tests here to test the functionality of linkedList
 });
