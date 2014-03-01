@@ -39,7 +39,17 @@ setPrototype.contains = function(value, node) {
 
 };
 
-setPrototype.depthFirstLog = function(callback) {
+setPrototype.depthFirstLog = function(callback, currentNode) {
+  var currentNode = currentNode || this;
+
+  callback.apply(currentNode.value, arguments);
+
+  if (currentNode.left !== null) {
+    currentNode.depthFirstLog(callback, currentNode.left);
+  }
+  if (currentNode.right !== null) {
+    currentNode.depthFirstLog(callback, currentNode.right);
+  }
 
 };
 
