@@ -61,6 +61,18 @@ describe("Tree Extra Credit", function() {
     expect(tree.children[0].children[0].parent).to.equal(tree.children[0]);
   });
 
+  it('should traverse and apply a callback function on each node', function(){
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    tree.traverse(function(){
+      this.value += 1;
+      console.log(this.value);
+    });
+    expect(tree.children[0].children[0].value).to.equal(8);
+  });
+
 
 
 

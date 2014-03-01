@@ -49,4 +49,16 @@ treeMethods.contains = function(target){
   return verdict;
 };
 
+treeMethods.traverse = function(callback, node) {
+  var node = node || this;
+
+  callback.apply(node, arguments);
+
+  if (node.children.length) {
+    for(var i = 0; i < node.children.length; i++){
+      node.traverse(callback, node.children[i]);
+    }
+  }
+};
+
 
