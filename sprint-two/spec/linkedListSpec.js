@@ -77,19 +77,25 @@ describe("linkedList Extra Credit", function() {
     assert.isTrue(linkedList.contains(9));
   });
 
-  it("EC: Should be able to removeHead and reassign to next Head", function(){
+  it("EC: should be able to removeHead and reassign to next Head", function(){
     linkedList.addToHead(9);
     linkedList.addToHead(10);
     linkedList.removeHead();
-    assert.isTrue(linkedList.contains(9));
+    expect(linkedList.head.value).to.equal(9);
   });
 
-  it("EC: Should be able to removeTail and reassign to prev Tail", function(){
+  it("EC: should be able to removeTail and reassign to prev Tail", function(){
     linkedList.addToTail(9);
     linkedList.addToTail(10);
     linkedList.addToTail(7);
     linkedList.removeTail();
-    assert.isTrue(linkedList.contains(10));
+    expect(linkedList.tail.value).to.equal(10);
+  });
+
+  it("EC: should have null next value for tail", function(){
+    linkedList.addToHead(9);
+    linkedList.addToTail(10);
+    expect(linkedList.tail.next).to.equal(null);
   });
 
 

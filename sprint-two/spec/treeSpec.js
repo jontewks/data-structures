@@ -45,3 +45,24 @@ describe("tree", function() {
   });
 
 });
+
+
+describe("Tree Extra Credit", function() {
+  var tree;
+
+  beforeEach(function() {
+    tree = makeTree();
+  });
+
+  it("should correctly detect parent property", function(){
+    tree.addChild(5);
+    tree.children[0].addChild(7);
+    expect(tree.children[0].parent).to.equal(tree);
+    expect(tree.children[0].children[0].parent).to.equal(tree.children[0]);
+  });
+
+
+
+
+
+});
